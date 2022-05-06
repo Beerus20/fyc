@@ -1,0 +1,32 @@
+{
+    "Nos villa": [
+        {
+            "id": 1,
+            "url": "./assets/images/absolutvision-82TpEld0_e4-unsplash.jpg",
+            "title": "Image 1 title",
+            "localisation": "Localisation from description",
+            "description": "Descriptoin of the content"
+        }
+        
+    ],
+    "Menu": [
+        {
+            "id": 7,
+            "url": "./assets/images/absolutvision-82TpEld0_e4-unsplash.jpg",
+            "title": "Image 1 title",
+            "localisation": "Localisation from description",
+            "description": "Descriptoin of the content"
+        }
+        
+    ],
+    "Activity": [
+        {
+            "id": 1,
+            "url": "./assets/images/absolutvision-82TpEld0_e4-unsplash.jpg",
+            "title": "Image 1 title",
+            "localisation": "Localisation from description",
+            "description": "Descriptoin of the content"
+        }
+        
+    ]
+}

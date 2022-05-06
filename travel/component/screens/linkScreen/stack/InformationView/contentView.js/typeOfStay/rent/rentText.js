@@ -1,0 +1,26 @@
+export const rentText = {
+    "fr": {
+        "intro" : "Vous souhaitez séjournez en famille à Marrakech?",
+        "grand titre" : "Le premier séjour à Marrakech",
+        "text intro" : "Les autres, de plus en plus longs, de plus en plus sereins, ne font ressentir que la nostalgie du premier voyage, une abondance de curiosité et de découvertes insouciantes.",
+        "question1" : "Comment débute votre premier séjour ?",
+        "response1" : "Ça commence bien avant l’arrivée. Au téléphone avec vos conseillers déjà cette aventure dorée, cette expérience amplifiée par le vécu de votre interlocuteur, prend vie.\n\nPuis lentement, au fil des mots et des échanges téléphoniques votre séjour prend forme, couleurs et vie. Comme l’attente semble longue avant votre départ ! On a envie d’y être tout de suite…",
+        "text1" : "Au fil des jours, tout se prépare et s’accommode sous vos yeux. Dernier appel avant votre arrivée, nous confirmons votre transfert aéroport, vous mettez le pied sur le tarmac et montez en voiture. Cette route, cet instant est inoubliable. Ce ni trop ni trop peu qui fait l’amorce idéale ; le bien-être immédiat ponctué par un soupir, ce silence qui les vaut; la sensation nouvelle d’un plaisir qui éclot à l’infini… la voiture s’arrête, les portes imposantes de la villa s’ouvrent… Oui, oui, oui… Les vacances commencent… enfin !",
+        "text2" : "En même temps, on sait déjà. Tout le meilleur est devant nous. On repose son verre de thé à la menthe, et on prend même un peu de recul. On savoure les embruns fleuris, les murs aux reflets de miel, le soleil généreux. Par tout un rituel de sagesse et de politesse, on s’approprie les lieux, on souhaite maîtriser le miracle qui vient de se produire et de s’échapper enfin du quotidien européen.\n\nOn lit avec satisfaction sur les visages de nos proches l’émerveillement abyssal que suscite le jardin, la piscine, l’air pur de l’altitude, et l’atmosphère de la villa. Nous vous l’avions recommandée, vous l’avez réservée.",
+        "question2" : "Mais vos proches et invités s’interrogent, se répondent, comment avez-vous trouvé cette pépite ?",
+        "reponse2" : "Des vacances dont vous parlerez pendant des années, voici notre ambition dévoilée sous vos yeux. Nous voulons vous offrir l’expérience que nous aimerions recevoir ailleurs. Nous faisons vivre à ceux qu’on aime, ce que nous avons aimé. Nous sommes la pépite que vous glissez paisiblement dans les mains de vos amis et votre famille. Une grande maison de confiance et d’expérience où tous sont accueillis et chéris comme il se doit.",
+        "proposition" : "Nos villas idéales pour un premier séjour à Marrakech"
+    },
+    "an": {
+        "intro" : "Do you want to stay with your family in Marrakech?",
+        "grand titre" : "The first stay in Marrakech",
+        "text intro" : "The others, longer and longer, more and more serene, only make you feel the nostalgia of the first trip, an abundance of curiosity and carefree discoveries.",
+        "question1" : "How does your first stay begin?",
+        "response1" : "It starts long before the arrival. Already on the phone with your advisors, this golden adventure, this experience amplified by the experience of your interlocutor, comes to life.\n\nThen slowly, over the words and telephone exchanges, your stay takes shape, colors and life. How long the wait seems before your departure! We want to be there right away...",
+        "text1" : "As the days go by, everything is prepared and adjusted before your eyes. Last call before your arrival, we confirm your airport transfer, you set foot on the tarmac and get in the car. This road, this moment is unforgettable. This neither too much nor too little that makes the ideal groundbait; the immediate well-being punctuated by a sigh, this silence which is worth them; the new sensation of a pleasure that blooms to infinity... the car stops, the imposing doors of the villa open... Yes, yes, yes... The holidays begin... finally!",
+        "text2" : "At the same time, we already know. All the best is ahead of us. We put down our glass of mint tea, and we even take a step back. We savor the flowery spray, the walls with honey reflections, the generous sun. Through a whole ritual of wisdom and politeness, we appropriate the place, we want to master the miracle that has just happened and finally escape from European daily life.\n\nWe read with satisfaction on the faces of our loved ones the abyssal wonder aroused by the garden, the swimming pool, the pure air of the altitude, and the atmosphere of the villa. We recommended it to you, you booked it.",
+        "question2" : "But your relatives and guests are wondering, answering each other, how did you find this nugget?",
+        "reponse2" : "A holiday you will talk about for years, here is our ambition unveiled before your eyes. We want to give you the experience we would like to receive elsewhere. We make those we love live what we loved. We are the nugget that you slip peacefully into the hands of your friends and family. A large house of trust and experience where all are welcomed and cherished as they should be.",
+        "proposition" : "Our ideal villas for a first stay in Marrakech"
+    }
+}
