@@ -18,7 +18,7 @@ const Birthday = () => {
             <Text style = { styles.title } >
                 { text["grand titre"] }
             </Text>
-            <Text>
+            <Text style={styles.simpleText}>
                 { text["text"] }
             </Text>
             <Selection data={data} />

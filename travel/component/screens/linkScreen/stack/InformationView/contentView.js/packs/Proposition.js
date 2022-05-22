@@ -14,7 +14,7 @@ const PropositionPack = ({data}) => {
             renderItem = { ({item}) => {
                 return (
                     <View style = {styles.container} >
-                        <Text style={{ fontWeight: "bold" }} >
+                        <Text style={{ fontWeight: "bold",color:"white" }} >
                             {item.titre}
                         </Text>
                         <View style = {styles.bar}/>
@@ -22,7 +22,7 @@ const PropositionPack = ({data}) => {
                             <Text style = {styles.price}>{item.prix}€</Text>
                             <Text> /jour/personnes</Text>
                         </View>
-                        <Text style={{ textAlign: "center", margin: 5 }} >
+                        <Text style={{ color: "white", textAlign: "center", margin: 5 }} >
                             {item.description}
                         </Text>
                         <TouchableOpacity style={styles.button} >
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         margin: 20,
         padding: 20,
-        borderColor: "#000",
-        shadowColor: "#000",
+        borderColor: "#ffffff50",
+        shadowColor: "#ffffff50",
         shadowOffset: { 
             width: 0,
             height: 0
@@ -58,13 +58,14 @@ const styles = StyleSheet.create({
         width: width * .4,
         height: 2,
         marginVertical: 20,
-        backgroundColor: "#000"
+        backgroundColor: "#fff"
     },
     price: {
         margin: 0,
         padding: 0,
         fontSize: 20,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        color: "white"
     },
     button:{
         position: "absolute",

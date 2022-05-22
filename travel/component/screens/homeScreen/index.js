@@ -1,5 +1,5 @@
 import React, { useContext, useState, useRef } from "react";
-import { View, Text, ImageBackground, StyleSheet, Image, Dimensions, FlatList, Animated, TouchableOpacity } from "react-native";
+import { ScrollView,View, Text, ImageBackground, StyleSheet, Image, Dimensions, FlatList, Animated, TouchableOpacity } from "react-native";
 import Context from "../../../context";
 import { 
     image1, 
@@ -33,32 +33,46 @@ const HomeScreen = ({navigation}) => {
     const showList = () => {
         setShow(!show);
     }
-
+    
     return (
-            <ImageBackground source={homeBackgroundImage} resizeMode="cover" style={{ flex:1 }} >
-            <View>
-                <Image
-                    source={logo}
-                    style={{
-                        width: 100,
-                        height:100,
-                        resizeMode: "cover",
-                        marginVertical: 50 
-                    }}
-                />
-            </View>
+        <ImageBackground source={homeBackgroundImage} resizeMode="cover" style={{ flex:1 }} >
             <Flag handleClick={showList} />
-
-            <View style={{opacity: (show? 0:1) }}>
-                <Carousel 
-                    data={data} 
-                    scrollX={scrollX} 
-                    width={widthImage} 
-                    height={heightImage} 
-                    position={-10} 
-                    radius={10}
-                />          
-            </View>
+            <ScrollView style={{
+                position: "relative",
+                top: "10%",
+                height: "auto"
+            }} >
+                <View>
+                    <Text style={{
+                        color:"white",
+                        fontWeight:"bold",
+                        fontSize: 20
+                    }}>
+                        Nos propositions de villa
+                    </Text>
+                    <Carousel data={data}/>          
+                </View>
+                <View>
+                    <Text style={{
+                        color:"white",
+                        fontSize: 20,
+                        fontWeight:"bold",
+                    }}>
+                        Nos propositions de villa
+                    </Text>
+                    <Carousel data={data}/>          
+                </View>
+                <View>
+                    <Text style={{
+                        color:"white",
+                        fontSize: 20,
+                        fontWeight:"bold",
+                    }}>
+                        Nos propositions de villa
+                    </Text>
+                    <Carousel data={data}/>          
+                </View>
+            </ScrollView>
  
 
             </ImageBackground>

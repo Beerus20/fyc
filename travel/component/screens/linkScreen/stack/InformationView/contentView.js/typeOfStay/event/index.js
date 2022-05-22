@@ -5,6 +5,7 @@ import { styles } from "../../styles";
 import Selection from "../../../../../../../items/Selection";
 import { listOfServices } from "../../../../ListView/ListOfEachService";    
 import Context from "../../../../../../../../context";
+import { image6 } from "../../../../../../../items/images/images";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -18,16 +19,13 @@ const Event = () => {
             <Text style = { styles.title } >
                 { text["grand titre"] }
             </Text>
-            <Text>
+            <Text style={styles.simpleText}>
                 { text["text"] }
             </Text>
 
-            <View
-                style= {{
-                    width,
-                    height: width,
-                    backgroundColor: "red"
-                }}
+            <Image
+                source={image6}
+                style={{width,height: width,resizeMode:"cover"}}
             />
 
             <View style = { styles.questionContainer } >
@@ -39,7 +37,7 @@ const Event = () => {
                 </Text>
             </View>
 
-            <Text>
+            <Text style={styles.simpleText}>
                 { text["end"] }
             </Text>
             <Text style = { styles.question } >

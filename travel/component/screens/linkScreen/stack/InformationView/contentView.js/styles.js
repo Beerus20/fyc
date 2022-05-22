@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
         paddingBottom: 150
     },
     title: {
+        color: "white",
         textAlign: "center",
         fontSize: 20,
         fontWeight: "bold",
@@ -18,6 +19,9 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: "bold",
         marginVertical: 5,
+    },
+    simpleText:{
+        color: "white"
     },
     questionContainer: {
         backgroundColor: "#ccc",

@@ -79,10 +79,12 @@ const Flag = ({handleClick}) => {
     return (
         <View
             style={{
-                position: "absolute",
-                top: 45,
-                left: 15,
-                width: Dimensions.get("screen").width
+                position: "relative",
+                top: 5,
+                right: -10,
+                backgroundColor: "red",
+                width: Dimensions.get("screen").width,
+                zIndex: 1
             }}
         >
             <TouchableOpacity
@@ -112,7 +114,7 @@ const Flag = ({handleClick}) => {
                     styles.containerList,
                     {
                         height,
-                        opacity: show,
+                        
                     }
                 ]}
             >

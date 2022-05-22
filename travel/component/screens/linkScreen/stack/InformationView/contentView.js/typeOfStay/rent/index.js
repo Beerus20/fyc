@@ -5,6 +5,7 @@ import { styles } from "../../styles";
 import Selection from "../../../../../../../items/Selection";
 import { listOfServices } from "../../../../ListView/ListOfEachService";    
 import Context from "../../../../../../../../context";
+import { image6 } from "../../../../../../../items/images/images";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -18,7 +19,7 @@ const Rent = () => {
             <Text style = { styles.title } >
                 { text["grand titre"] }
             </Text>
-            <Text>
+            <Text style = {styles.simpleText}>
                 { text["text intro"] }
             </Text>
             <View style = { styles.questionContainer } >
@@ -29,19 +30,20 @@ const Rent = () => {
                     { text["response1"] }
                 </Text>
             </View>
-            <Text>
+            <Text style = {styles.simpleText}>
                 { text["text1"] }
             </Text>
 
-            <View
+            <Image
+                source={image6}
                 style= {{
-                    width,
+                    width: "auto",
                     height: width,
-                    backgroundColor: "red"
+                    resizeMode: "cover"
                 }}
             />
 
-            <Text>
+            <Text style = {styles.simpleText}>
                 { text["text2"] }
             </Text>
 

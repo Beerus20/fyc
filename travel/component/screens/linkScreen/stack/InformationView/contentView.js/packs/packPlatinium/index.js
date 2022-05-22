@@ -39,13 +39,13 @@ const PackPlatinium = () => {
 
     return (
         <ScrollView style = {styles.container}>
-             <Text style = { styles.title } >
+              <Text style = { styles.title } >
                 { text["grand titre"] }
             </Text>
             <Text style={styles.question} >
                 { text["titre"] }
             </Text>
-            <Text>
+            <Text style={styles.simpleText}>
                 { text["text"] }
             </Text>
             
@@ -55,7 +55,7 @@ const PackPlatinium = () => {
             
             <PropositionPack data={data_1} />
             
-            <Text>
+            <Text style={styles.simpleText}>
                 { text["offre text"] }
             </Text>
 
@@ -65,16 +65,16 @@ const PackPlatinium = () => {
             
             <PropositionPack data={data_2} />
             
-            <Text>
+            <Text style={styles.simpleText}>
                 { text["menu text"] }
             </Text>
-            <Text style={{textAlign:"center", marginVertical: 20}} >
+            <Text style={{color:"white",textAlign:"center", marginVertical: 20}} >
                 --------------------------------------
             </Text>
             <Text style={styles.simpleTitle} >
                 { text["proposition"] }
             </Text>
-            <Text>
+            <Text style={styles.simpleText}>
                 { text["proposition text"] }
             </Text>
             <Text style = {styles.question} >
@@ -82,6 +82,7 @@ const PackPlatinium = () => {
             </Text>
 
             <Selection data={data} />
+
         </ScrollView>
     )
 }

@@ -20,7 +20,7 @@ const Wedding = () => {
             <Text style = { styles.title } >
                 { text["grand titre"] }
             </Text>
-            <Text>
+            <Text style={styles.simpleText}>
                 { text["text intro"] }
             </Text>
             <View style = { styles.questionContainer } >
@@ -30,7 +30,7 @@ const Wedding = () => {
                 <Text style = { styles.question } >
                     { text["question"] }
                 </Text>
-                <Text>
+                <Text  style={styles.simpleText}>
                     { text["reponse"] }
                 </Text>
             </View>

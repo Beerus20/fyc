@@ -15,19 +15,12 @@ const Seminary = () => {
             <Text style = { styles.title } >
                 { text["grand titre"] }
             </Text>
-            <Text>
+            <Text style={styles.simpleText}>
                 { text["text"] }
             </Text>
-            <Text>
+            <Text style={styles.simpleText}>
                 { text["partenaire"] }
             </Text>
-            <View
-                style= {{
-                    width,
-                    height: width,
-                    backgroundColor: "red"
-                }}
-            />
 
         </ScrollView>
     )

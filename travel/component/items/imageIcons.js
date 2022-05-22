@@ -14,6 +14,13 @@ import location from "../../assets/icons/stay-home.png";
 import wedding from "../../assets/icons/wedding.png";
 import birthday from "../../assets/icons/birthday-cake.png";
 import seminary from "../../assets/icons/lecture.png";
+import yoga from "../../assets/icons/buddhist-yoga-pose.png";
+import spa from "../../assets/icons/plant.png";
+import catalogue from "../../assets/icons/book.png";
+import doorbell from "../../assets/icons/doorbell.png";
+import bed from "../../assets/icons/single-bed.png";
+import menu from "../../assets/icons/fork-and-knife.png";
+import itinerary from "../../assets/icons/navigation.png";
 
 
 export {
@@ -32,6 +39,13 @@ export {
     location,
     wedding,
     birthday,
-    seminary
+    seminary,
+    yoga,
+    spa,
+    catalogue,
+    doorbell,
+    bed,
+    menu,
+    itinerary
 }
 

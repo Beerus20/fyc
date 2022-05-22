@@ -120,13 +120,7 @@ const Packs = () => {
             <Text>
                 { text["text 2"] }
             </Text>
-            <View
-                style= {{
-                    width,
-                    height: width,
-                    backgroundColor: "red"
-                }}
-            />
+            
         </ScrollView>
     )
 }

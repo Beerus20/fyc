@@ -5,6 +5,8 @@ import { PackGold, PackSilver, PackPlatinium } from "./contentView.js/packs";
 import Carousel from "../../../../items/Carousel";
 import { image1,image2,image3,image4 } from "../../../../items/images/images";
 import Context from "../../../../../context";
+import Services from "./service";
+import Itinerary from "./Itinerary";
 
 const { width, height } = Dimensions.get("window");
 const containerHeight = height * 2;
@@ -44,12 +46,13 @@ const InformationView = ({route,navigation}) => {
     const scrollX = useRef(new Animated.Value(0)).current;
     const params = route.params;
     return (
-        <View>
+        <View style={styles.container}>
             <ScrollView style = {{
                 height,
             }}> 
-                <Carousel data={images} scrollX={scrollX} width={width} height={height * .3} position={10} radius={0} />
-
+                <Carousel data={images} />
+                <Services/>
+                <Itinerary/>
                 {render(params)}
 
                 
@@ -59,7 +62,7 @@ const InformationView = ({route,navigation}) => {
                 style={styles.button}
             >
                 <Text style={styles.text} >
-                    { state.langage === "fr" ? "Demande de reservation pour" : "Reservation request for"} {params.selectedService[state.langage]}
+                    Reservation
                 </Text>
             </TouchableOpacity>
         </View>
@@ -67,6 +70,10 @@ const InformationView = ({route,navigation}) => {
 }
 
 const styles = StyleSheet.create({
+    container:{
+        backgroundColor: "#000"
+    },
+
     button: {
         justifyContent: "center",
         alignItems: "center",
