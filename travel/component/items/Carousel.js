@@ -6,9 +6,9 @@ import CarouselItem from "./CarouselItem";
 
 const { width, height } = Dimensions.get("screen");
 
-let myFlatlist;
 
-const infiniteScroll = (dataList) => {
+
+const infiniteScroll = (dataList,myFlatlist) => {
     const numberOfData = dataList.length;
     let scrollValue = 0, scrolled = 0;
 
@@ -21,7 +21,7 @@ const infiniteScroll = (dataList) => {
             scrollValue = 0;
         }
         myFlatlist.scrollToOffset({animated: true, offset: scrollValue});
-    }, 3000);
+    }, 4000);
 }
 
 
@@ -31,11 +31,11 @@ const Carousel = ({data}) => {
     const scrollX = new Animated.Value(0);
     let position = Animated.divide(scrollX, width);
     const [dataList, setDataList] = useState(data);
-    
+    let myFlatlist;
 
     useEffect(() => {
         setDataList(data);
-        infiniteScroll(dataList);
+        infiniteScroll(dataList,myFlatlist);
     })
 
     return (
@@ -70,7 +70,7 @@ const Carousel = ({data}) => {
                     });
                     return(
                         <Animated.View
-                            key = {i}
+                            key = {"imagee" + i}
                             style = {{opacity, height: 10, width: 10, backgroundColor: "#595959", margin: 8, borderRadius: 5}}
                         />
                     )

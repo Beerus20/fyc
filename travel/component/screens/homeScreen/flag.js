@@ -1,173 +1,119 @@
-import React, { useRef, useState, useContext } from 'react';
-import { View, Text, FlatList, TouchableOpacity, Image, Animated, StyleSheet, Dimensions } from 'react-native';
-import { 
-    An,
-    Fr,
-    Mc,
-    Ca 
-} from '../../items/images/images';
+import React, { useState, useContext } from 'react';
+import { Modal, StyleSheet, Text, TouchableOpacity, View, Dimensions, Image } from 'react-native';
 import Context from '../../../context';
+import { Fr, An } from '../../items/images/flagImages';
 
 const langage = [
     {
+        id: 0,
         flag: Fr,
         langage: "fr",
         text: "Français"
     }, 
     {
+        id: 1,
         flag: An,
         langage: "an",
         text: "Anlgais"
     }, 
-    ];
+];
 
-const Flag = ({handleClick}) => {
+const { width, height } = Dimensions.get("window");
+const flagSize = 40;
+    
+const Flag = () => {
     const {state, changeLangage, changeMode} = useContext(Context); 
-    const show = useRef(new Animated.Value(0)).current;
-    const height = useRef(new Animated.Value(0)).current;
-    const [active, setActive] = useState(true);
-    const [selected, setSelected] = useState(langage[0]);
+    const [selectedLanguage, setSelectedLanguage] = useState(langage[0]);
+    const [modalVisible, setModalVisible] = useState(false);
 
-    const showIn = () => {
-        Animated.timing(show, {
-            toValue: 1,
-            duration: 500,
-            useNativeDriver: false
-        }).start();
-    }
-
-    const showOut = () => {
-        Animated.timing(show, {
-            toValue: 0,
-            duration: 1000,
-            useNativeDriver: false
-        }).start();
-    }
-
-    const heightIn = () => {
-        Animated.timing(height, {
-            toValue: Dimensions.get("screen").height * .7,
-            duration: 500,
-            useNativeDriver: false
-        }).start();
-    }
-
-    const heightOut = () => {
-        Animated.timing(height, {
-            toValue: 0,
-            duration: 500,
-            useNativeDriver: false
-        }).start();
-    }
-
-    const Action = () => {
-        handleClick();
-        setActive(!active);
-        return (active ? 
-            (
-                showIn(),
-                heightIn()
-            )
-            : 
-            (
-                showOut(),
-                heightOut()
-            )
-        );
+    const changeLangageSelected = (langageSelected) => {
+        setSelectedLanguage(langageSelected);
+        setModalVisible(!modalVisible);
+        changeLangage(langageSelected.langage);
     }
 
     return (
-        <View
-            style={{
-                position: "relative",
-                top: 5,
-                right: -10,
-                backgroundColor: "red",
-                width: Dimensions.get("screen").width,
-                zIndex: 1
-            }}
+    <View style={styles.container} >
+        <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
         >
-            <TouchableOpacity
-                onPress={Action}
-                style={{
-                    position: "absolute",
-                    top: 15,
-                    right: 40,
-                    width: 50,
-                    height: 50,
-                    zIndex: 11
-                }}
-            >
-                <Image
-                    source={selected.flag}
-                    style={{
-                        width: 50,
-                        height: 50,
-                        resizeMode: "cover",
-                        borderRadius: 40
-                    }}     
-                />
-                
-            </TouchableOpacity>
-            <Animated.View
-                style={[
-                    styles.containerList,
-                    {
-                        height,
-                        
-                    }
-                ]}
-            >
-                <FlatList
-                    data={langage}
-                    keyExtractor={(_, index) => index.toString()}
-                    style={{ height: "100%" }}
-                    renderItem={({item}) => (
-                        <TouchableOpacity 
-                            onPress={() => {
-                                setSelected(item);
-                                Action();
-                                changeLangage(item.langage);
-                            }}
-                            style={styles.lang} 
-                        >
-                            <Image
-                                source={item.flag}
-                                style={{
-                                    width: 70,
-                                    height: 50,
-                                    resizeMode: "cover",
-                                    marginHorizontal: 5
-                                }}
-                            />
-                            <Text style={{ marginHorizontal: 10 }} >
+            <View style={styles.view}>
+                {
+                    langage.map((item) => (
+                        <TouchableOpacity key={item.id} style={styles.selection} onPress={() => changeLangageSelected(item)}>
+                            <Image style={styles.imageSelection} source={item.flag}/>
+                            <Text style={styles.textSelection}>
                                 {item.text}
                             </Text>
                         </TouchableOpacity>
-                    )}
-                />                
-            </Animated.View>
-        </View>
-    )
-}
-
+                    ))
+                }
+            </View>
+        </Modal>
+        <TouchableOpacity style={styles.button} onPress={() => setModalVisible(!modalVisible)}>
+            <Image style={styles.selectedFlag} source={selectedLanguage.flag} />
+        </TouchableOpacity>
+    </View>
+    );
+};
+    
 const styles = StyleSheet.create({
-    containerList: {
-        position: "absolute",
-        top: 40,
-        left: 0,
-        width: Dimensions.get("screen").width - 30,
-        backgroundColor: "#fff7",
-        borderRadius: 10,
-        zIndex: 10
+    container:{
+        flex: 1,
+        width,
+        height,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 22,
     },
-    lang:{
+    view:{
+        position: "relative",
+        top: "10%",
+        backgroundColor: "#FFFFFF",
+        marginHorizontal: 5,
+        padding: 10,
+        borderRadius: 10
+    },
+    button:{
+        position: "absolute",
+        top: 20,
+        right: 10,
+        width: flagSize,
+        height: flagSize,
+        borderRadius: 40,
+        zIndex: 2,
+    },
+    selectedFlag: {
+        width: flagSize,
+        height: flagSize,
+        borderRadius: 40,
+        resizeMode: "cover",
+    },
+    selection:{
         flexDirection: "row",
         alignItems: "center",
-        backgroundColor: "#fff",
         margin: 10,
-        borderRadius: 5
-    }
-})
+        borderRadius: 10,
+        shadowColor: "#000",
+        shadowOffset: {width: 0, height: 0.8},
+        shadowRadius: 3,
+        shadowOpacity: .58,
+        elevation: 1
+    },
+    imageSelection:{
+        width: flagSize,
+        height: flagSize,
+        resizeMode: "contain",
+        marginHorizontal: 10,
+        borderRadius: 15,
+    },
+    textSelection:{
+        fontWeight: "bold",
+        marginHorizontal: 20
+    },
+});
+    
 
 export default Flag;

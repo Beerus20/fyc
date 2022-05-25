@@ -4,7 +4,7 @@ import { weddingText } from "./weddingText";
 import Icon from "../../../../../../../navigation/Icon";
 import { styles } from "../../styles";
 import Selection from "../../../../../../../items/Selection";
-import { listOfServices } from "../../../../ListView/ListOfEachService";    
+import { listOfServices } from "../../../../../../../data/ListOfEachService";    
 import Context from "../../../../../../../../context";
 
 const { width, height } = Dimensions.get("screen");

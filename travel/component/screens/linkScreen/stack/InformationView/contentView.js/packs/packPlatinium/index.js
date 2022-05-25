@@ -3,7 +3,7 @@ import { ScrollView, View, Text, Image, StyleSheet, Dimensions } from "react-nat
 import { packPlatiniumText } from "./packPlatiniumText";
 import { styles } from "../../styles";
 import Selection from "../../../../../../../items/Selection";
-import { listOfServices } from "../../../../ListView/ListOfEachService";    
+import { listOfServices } from "../../../../../../../data/ListOfEachService";    
 import PropositionPack from "../Proposition";
 
 const { width, height } = Dimensions.get("screen");

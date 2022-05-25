@@ -1,4 +1,4 @@
-import Rent from "./Rent";
+import Rent from "./rent";
 import Seminary from "./seminary";
 import Wedding from "./wedding";
 import Birthday from "./birthday";

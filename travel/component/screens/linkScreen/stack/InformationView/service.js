@@ -21,19 +21,19 @@ const services = [
 ];
 
 const width = Dimensions.get("window").width;
-const spaces = 5;
-const iconSize = (width / services.length) - spaces * 2;
+const spaces = 4;
+const iconSize = ((width-50) / services.length) - spaces * 2;
 
 const Services = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Text style={styles.text}>
                 Services
             </Text>
             <View style = {styles.iconContainer}>
                 {services.map((url, i) => (
-                    <TouchableOpacity style = {styles.icon}>
-                        <Icon key={"image "+i} source={url} />
+                    <TouchableOpacity key={"image "+i} style = {styles.icon}>
+                        <Icon  source={url} />
                     </TouchableOpacity>
                 ))}
             </View>
@@ -42,6 +42,10 @@ const Services = () => {
 }
 
 const styles = StyleSheet.create({
+    container:{
+        marginVertical: 20,
+        marginHorizontal: 10
+    },
     text:{
         fontWeight: "bold",
         fontSize: 20,
@@ -52,7 +56,7 @@ const styles = StyleSheet.create({
     iconContainer:{
         flex: 1,
         flexDirection: "row",
-        justifyContent: "center"
+        justifyContent: "center",
     },
 
     icon:{
@@ -63,9 +67,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff3",
         borderRadius: 5,
         margin: spaces,
-        padding: spaces,
-        
-    }
+    },
 })
 
 export default Services;

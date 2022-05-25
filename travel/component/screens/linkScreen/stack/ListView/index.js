@@ -11,7 +11,7 @@ import {
     Dimensions,
     StyleSheet
 } from "react-native";
-import { listOfServices } from "./ListOfEachService";
+import { listOfServices } from "../../../../data/ListOfEachService";
 import Context from "../../../../../context";
 import VillaList from "./villaList";
 
@@ -22,46 +22,37 @@ const imageWidth = width * .30;
 const ListService = ({route,navigation}) => {
     const {state} = useContext(Context);
     const dataName = route.params.title["fr"];
-    let style = {content: styles.content, image: styles.image, title: styles.title, text: styles.text };
 
-    switch(dataName){
-        case "Type de séjour":      style = {...style, image: styles.image_1 };break;
-        default: break;
-    }
-
-    if(dataName === "Nos villa"){
-        return <VillaList data={listOfServices[dataName]} navigation={navigation} />
-    }else
-        return (
-            <View style = {{ height: height - 150 }} >
-            <FlatList
-                data = {listOfServices[dataName]}
-                keyExtractor = {(_,index) => index.toString()} 
-                showsVerticalScrollIndicator = { false }
-                renderItem = { ({item}) => {
-                    return (
-                            <TouchableOpacity 
-                                onPress={() => navigation.navigate("Information view",{ title: dataName, selectedService: item["nom"], type: item.description })}
-                                style={style.content} 
-                            >
-                                <Image
-                                    source = {item.image}
-                                    style = {style.image}
-                                />
-                                <View style = {styles.textContainer} >
-                                    <Text style = {style.title}> 
-                                        { item.nom[state.langage] } 
-                                    </Text>
-                                    <Text style = {style.text}> 
-                                        { item.description[state.langage] } 
-                                    </Text>
-                                </View>
-                            </TouchableOpacity>
-                    )
-                } }
-            />
-            </View>
-        )
+    return (
+        <View style = {{ position: "relative", top: 20, height: height - 90 }} >
+        <FlatList
+            data = {listOfServices[dataName]}
+            keyExtractor = {(_,index) => index.toString()} 
+            showsVerticalScrollIndicator = { false }
+            renderItem = { ({item}) => {
+                return (
+                        <TouchableOpacity 
+                            onPress={() => navigation.navigate("Information view",{ title: dataName, selectedService: item["nom"], type: item.description })}
+                            style={styles.content} 
+                        >
+                            <Image
+                                source = {item.image}
+                                style = {styles.image}
+                            />
+                            <View style = {styles.textContainer} >
+                                <Text style = {styles.title}> 
+                                    { item.nom[state.langage] } 
+                                </Text>
+                                <Text style = {styles.text}> 
+                                    { item.description[state.langage] } 
+                                </Text>
+                            </View>
+                        </TouchableOpacity>
+                )
+            } }
+        />
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -71,13 +62,15 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         shadowColor: "#000",
         shadowOffset: {
-            height: 0,
-            width: 0
+            height: 0.8,
+            width: 0.8
         },
         shadowRadius: 5,
-        shadowOpacity: .7
+        shadowOpacity: 1,
+        elevation: 1
     },
     textContainer: {
+        flexGrow: 1,
         marginHorizontal: 10
     },
     image:{
@@ -99,7 +92,7 @@ const styles = StyleSheet.create({
         marginTop: width * .005,
     },
     text:{
-        width:  width * .7
+         width: "55%"
     }
 });
 

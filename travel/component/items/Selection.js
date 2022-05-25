@@ -7,10 +7,9 @@ const { width, height } = Dimensions.get("screen");
 const Selection = ({data}) => {
     const {state} = useContext(Context);
     return (
-        <View>
+        <View style={styles.generalContainer}>
             <FlatList
                 data = { data }
-                pagingEnabled
                 horizontal
                 keyExtractor = { (_,index) => index.toString() }
                 showsHorizontalScrollIndicator = { false }
@@ -38,18 +37,23 @@ const Selection = ({data}) => {
 }
 
 const styles = StyleSheet.create({
+    generalContainer:{
+        marginHorizontal: 10
+    },
     container: {
         width: width * .4,
         height: width * .6,
+        backgroundColor: "#fff2",
+        margin: 10,
         borderRadius: 8,
-        shadowColor: "#000",
+        shadowColor: "#fff",
         shadowOffset: {
-            width: 0,
-            height: 0
+            height: 0.8,
+            width: 0.8
         },
-        shadowRadius: 10,
-        shadowOpacity: .5,
-        margin: 10
+        shadowRadius: 5,
+        shadowOpacity: 1,
+        elevation: 1
     },
     image:{ 
         width: "100%",

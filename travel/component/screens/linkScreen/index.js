@@ -14,8 +14,26 @@ const LinkScreen = ({navigation}) => {
 
     return (
         <stack.Navigator>
-            <stack.Screen name="Link view" component={ContentService} />
-            <stack.Screen name="List view" component={ListService} />
+            <stack.Screen name="Link view" component={ContentService} 
+                 options = {{
+                    headerTitle: "",
+                    headerTintColor: "#fff",
+                    headerTransparent: true,
+                    headerStyle: {
+                        backgroundColor: 'transparent',
+                    },
+                }}
+            />
+            <stack.Screen name="List view" component={ListService} 
+                 options = {{
+                    headerTitle: "",
+                    headerTintColor: "#fff",
+                    headerTransparent: true,
+                    headerStyle: {
+                        backgroundColor: 'transparent',
+                    },
+                }}
+            />
             <stack.Screen name="Information view" component={InformationView} 
                 options = {{
                     headerTitle: "",

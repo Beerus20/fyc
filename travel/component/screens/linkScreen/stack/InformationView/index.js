@@ -3,14 +3,13 @@ import { ScrollView, Dimensions,View, Text, StyleSheet, Image, Animated, Touchab
 import { Rent, Seminary, Wedding, Event, Birthday } from "./contentView.js/typeOfStay";
 import { PackGold, PackSilver, PackPlatinium } from "./contentView.js/packs";
 import Carousel from "../../../../items/Carousel";
-import { image1,image2,image3,image4 } from "../../../../items/images/images";
 import Context from "../../../../../context";
 import Services from "./service";
 import Itinerary from "./Itinerary";
+import { imageList } from "../../../../data/imageList";
 
 const { width, height } = Dimensions.get("window");
-const containerHeight = height * 2;
-const images = [ image1,image2,image3,image4 ];
+const images = imageList["Nos villa"].map(villa => villa.url);
 
 const render = ({title, selectedService}) => {
     const service = selectedService.fr;

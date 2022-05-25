@@ -3,9 +3,9 @@ import { ScrollView, View, Text, Image, StyleSheet, Dimensions } from "react-nat
 import { eventText } from "./eventText";
 import { styles } from "../../styles";
 import Selection from "../../../../../../../items/Selection";
-import { listOfServices } from "../../../../ListView/ListOfEachService";    
+import { listOfServices } from "../../../../../../../data/ListOfEachService";    
 import Context from "../../../../../../../../context";
-import { image6 } from "../../../../../../../items/images/images";
+import { villa1_coverImage } from "../../../../../../../items/images/villasCoverImage";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -24,7 +24,7 @@ const Event = () => {
             </Text>
 
             <Image
-                source={image6}
+                source={villa1_coverImage}
                 style={{width,height: width,resizeMode:"cover"}}
             />
 

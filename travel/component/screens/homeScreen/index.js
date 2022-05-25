@@ -1,77 +1,66 @@
 import React, { useContext, useState, useRef } from "react";
-import { ScrollView,View, Text, ImageBackground, StyleSheet, Image, Dimensions, FlatList, Animated, TouchableOpacity } from "react-native";
+import { ScrollView,View, Text, ImageBackground, StyleSheet, Dimensions, Image } from "react-native";
 import Context from "../../../context";
-import { 
-    image1, 
-    image2, 
-    image3, 
-    image4, 
-    image5,
-    homeBackgroundImage 
-} from "../../items/images/images";
+import { homeBackgroundImage1 } from "../../items/images/images";
 import Carousel from "../../items/Carousel";
-import { logo } from "../../items/images/images";
 import Flag from "./flag";
+import { imageList } from "../../data/imageList";
+import { listOfServices } from "../../data/ListOfEachService";
+import { logo } from "../../items/images/images";
+import { homePageText } from "./homePageText";
 
-const { width, height } = Dimensions.get('screen');
-const widthImage = width * .9;
-const heightImage = width * .7;
+const villaListImage = imageList["Nos villa"].map(villa => villa.url);
+const activityListImage = listOfServices["Nos activités"].map(service => service.image);
 
-const data = [
-    image1,
-    image2,
-    image3,
-    image4,
-    image5
-];
+const {width, height} = Dimensions.get("window");
 
 
 const HomeScreen = ({navigation}) => {
-    const [selectedValue, setSelectedValue] = useState("java");
+    const {state} = useContext(Context);
     const [show, setShow] = useState(false);
-    const scrollX = useRef(new Animated.Value(0)).current;
+    const text = homePageText[state.langage];
+
     const showList = () => {
         setShow(!show);
     }
+
+    const [selectedLanguage, setSelectedLanguage] = useState('C');
+    const [language] = useState([
+        "C",
+        "c++",
+        "other"
+    ]);
+
     
     return (
-        <ImageBackground source={homeBackgroundImage} resizeMode="cover" style={{ flex:1 }} >
+        <ImageBackground source={homeBackgroundImage1} resizeMode="cover" style={{ flex:1 }} >
             <Flag handleClick={showList} />
-            <ScrollView style={{
-                position: "relative",
-                top: "10%",
-                height: "auto"
-            }} >
-                <View>
-                    <Text style={{
-                        color:"white",
-                        fontWeight:"bold",
-                        fontSize: 20
-                    }}>
-                        Nos propositions de villa
+            <ScrollView style={styles.container} >
+                <View style={styles.header}>
+                    <Text style={styles.title}>
+                        {text["titre"]}
                     </Text>
-                    <Carousel data={data}/>          
+                    <Image style={styles.logo} source={logo} />
                 </View>
                 <View>
-                    <Text style={{
-                        color:"white",
-                        fontSize: 20,
-                        fontWeight:"bold",
-                    }}>
-                        Nos propositions de villa
+                    <Text style={styles.text}>
+                        {text["villa image"]}
                     </Text>
-                    <Carousel data={data}/>          
+                    <Carousel data={villaListImage}/>          
                 </View>
                 <View>
-                    <Text style={{
-                        color:"white",
-                        fontSize: 20,
-                        fontWeight:"bold",
-                    }}>
-                        Nos propositions de villa
+                    <Text style={styles.text}>
+                        {text["activity image"]}
                     </Text>
-                    <Carousel data={data}/>          
+                    <Carousel data={activityListImage}/>          
                 </View>
+                <View>
+                    <Text style={styles.text}>
+                        {text["other"]}
+                    </Text>
+                    <Carousel data={villaListImage}/>          
+                </View>
+               
             </ScrollView>
  
 
@@ -82,12 +71,35 @@ const HomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1,
-        alignItems:'center',
+        position: "absolute",
+        top: 0,
+        height: height - 80,
+        marginVertical: "10%",
     },
-    backImage:{
-        height: Dimensions.get("screen").height,
-        resizeMode: "cover"
+    header:{
+        justifyContent: "center",
+        alignItems: "center",
+    },  
+    title:{
+        color: "white",
+        textAlign: "center",
+        fontSize: 25,
+        marginTop: 25,
+        marginBottom: 10
+    },  
+    logo:{
+        width: 50,
+        height: 50,
+        resizeMode: "cover",
+        marginTop: 10,
+        marginBottom: 25,
+        borderRadius: 10
+    },  
+    text:{
+        color:"white",
+        fontWeight:"bold",
+        fontSize: 15,
+        margin: 10
     }
     
 })
